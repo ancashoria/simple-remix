@@ -1,5 +1,6 @@
 import { Link } from "@remix-run/react"
 
+import * as styles from "../styles/reset.css"
 import { Box } from "../components/Box"
 import { Header } from "../components/Header/Header"
 import { Button, links as buttonLinks } from "../components/Button/Button"
@@ -14,15 +15,20 @@ import { Rolodex } from "../components/Rolodex/Rolodex"
 import { LogoSymbol } from "../components/Logo/Logo"
 
 export const links = () => [
+  ...__vanillaStyle.map((href) => ({
+    rel: "stylesheet",
+    href,
+  })),
   ...buttonLinks(),
-  ...containerLinks()
+  ...containerLinks(),
 ]
 
 export default function Index() {
   return (
     <>
       <Header />
-      <Box paddingX="xlarge" paddingTop="large">
+      {/* Without using styles from reset, it will not include it */}
+      <Box paddingX="xlarge" paddingTop="large" className={styles.something}>
         <Box
           component="h1"
           fontSize="4x"

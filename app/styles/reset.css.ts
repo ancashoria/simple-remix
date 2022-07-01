@@ -1,5 +1,5 @@
-import { globalStyle } from '@vanilla-extract/css'
-import { breakpoints, vars } from './theme.css'
+import { globalStyle, style } from '@vanilla-extract/css'
+import { vars } from './theme.css'
 
 // https://www.joshwcomeau.com/css/custom-css-reset/
 
@@ -100,3 +100,7 @@ globalStyle('#root, #__next', {
 //   backgroundColor: vars.color.secondary,
 //   float: 'left'
 // })
+
+export const something = style({
+  display: 'block'
+})
